@@ -1,0 +1,51 @@
+Levantar el proyecto
+1. Abrir los proyectos dasras, eon-core, eon-trafico y dasras-agregator con netbeans. El main principal se encuentra en dasras, source packages, 
+py.una.fp.eon.dasras.main, MRMLSAGA.java
+2. Para cada proyecto, click derecho, set configuration, customize, Actions, CLEAN AND BUILD PROJECT y agregar los valores
+    1. EXECUTE GOALS: clean package -DskipTests=true install
+    2. SET PROPERTIES: skipTests=true
+3. Así también, para cada proyecto en RUN debe agregarse -Xms8192m  -Xmx8192m para agrandar la VM de java.
+4. Al darle ejecutar, darle desde el PLAY VERDE, no desde click derecho, runruneo porque no toma los parámetros de memoria
+
+
+Monitoreo de recursos el proyecto
+Javasystem
+
+
+Configuración de parámetros del proyecto
+La configuración de las diferentes redes se encuentran en: dasras, other sources (src/main/resources/), default package. Ejemplo: network N6S9, 
+networkNSFNET y networkusnet.
+Abrir el proyecto eon-trafico, other sources (src/main/resources), default package, trafico_parameters.properties
+ 
+Estructura
+1. Definicion de carpetas
+    1. trafico.path.secuencia
+    2. trafico.path.secuenciaNueva
+    3. trafico.path.shortest: path donde se generarían los resultados de la corrida del Shortest Path Algorithm, utilizado en la primera etapa.
+    4. trafico.path.network: path donde se encuentran los archivos de las estructuras de las redes.
+    5. trafico.path.destino: path donde se generarían los resultados de las corridas.
+2. Parametros de la red
+    1. trafico.filename.network: cuales serian las redes a ser ejecutadas.
+    2. trafico.fs.size:
+    3. trafico.shortestpath.k:
+    4. trafico.gamma.value:
+    5. trafico.guardBand.size:
+    6. trafico.network.capacity=12.5                            #  En Gbps
+    7. trafico.request.capacity.max=200                     # En Gbps
+    8. trafico.request.capacity.min=10.                        # En Gbps
+3. Parametros de la corrida
+    1. trafico.group.request.number=5                         #  Pueden ser request de 5, 10, 15, 30 y 50.
+    2. trafico.group.request.5.best.index=13.2
+    3. trafico.group.request.10.best.index=16.5
+    4. trafico.group.request.15.best.index=26
+    5. trafico.group.request.30.best.index=49.5
+    6. trafico.group.request.50.best.index=75.7
+    7. trafico.group.number=10
+    8. trafico.target.number=3                                      # Cantidad de destinos, ojo, en el codigo esta estatico 3
+    9. trafico.request.secuencia.distintas=false
+    10. trafico.request.secuencia.times.max=1000       # Cantidad de individuos de la poblacion, o de secuencias 1000
+    11. trafico.corridas=30                                               # Genetic parameteres
+    12. trafico.evolucion=100                                           # Genetic
+    13. trafico.individuos=10                                            # Genetic
+    14. trafico.get.best=best                                            # shortest,result,best
+    15. trafico.resolve.algoritmo=LRG                            # tipo de algoritmo a ser utilizado LRG,SALRG, GALRG, GASALRGo
