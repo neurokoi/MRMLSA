@@ -1,0 +1,10 @@
+target/
+
+# dev
+.project
+.tern-project
+.classpath
+.settings/*
+.settings
+/bin/
+bin/*

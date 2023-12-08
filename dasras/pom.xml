@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>py.una.fp.eon</groupId>
+	<artifactId>dasras</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>dasras</name>
+	<description>Distance-Adaptive Spectrum Resource Allocation using Subtree Scheme for All-Optical Multicasting in Elastic Optical Networks</description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<version.maven.compiler.target>1.8</version.maven.compiler.target>
+		<version.maven.compiler.source>1.8</version.maven.compiler.source>
+		<version.maven.compiler.plugin>3.1</version.maven.compiler.plugin>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.maven.compiler.plugin}</version>
+				<configuration>
+					<source>${version.maven.compiler.source}</source>
+					<target>${version.maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+                        
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-jar-plugin</artifactId>
+                            <version>2.3.2</version>
+                            <configuration>
+                              <archive>
+                                <manifest>
+                                  <addClasspath>true</addClasspath>
+                                  <mainClass>py.una.fp.eon.dasras.main.main</mainClass>
+                                </manifest>
+                              </archive>
+                            </configuration>
+                          </plugin>
+                          
+                          <plugin>
+                                <artifactId>maven-assembly-plugin</artifactId>
+                                <configuration>
+                                    <descriptorRefs>
+                                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                                    </descriptorRefs>
+                                    <archive>
+                                        <manifest>
+                                            <mainClass>py.una.fp.eon.dasras.main.main</mainClass>
+                                        </manifest>
+                                    </archive>
+                                </configuration>
+                                <executions>
+                                    <execution>
+                                        <id>make-assembly</id>
+                                        <phase>package</phase>
+                                        <goals>                         
+                                            <goal>single</goal>
+                                        </goals>
+                                    </execution>
+                                </executions>
+                            </plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/net.sourceforge.collections/collections-generic -->
+		<dependency>
+			<groupId>net.sourceforge.collections</groupId>
+			<artifactId>collections-generic</artifactId>
+			<version>4.01</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-core</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jgrapht</groupId>
+			<artifactId>jgrapht-ext</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jung</groupId>
+			<artifactId>jung-algorithms</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>py.una.fp</groupId>
+			<artifactId>eon-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>py.una.fp</groupId>
+			<artifactId>eon-trafico</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.commons</groupId> -->
+<!-- 			<artifactId>commons-math3</artifactId> -->
+<!-- 			<version>3.6.1</version> -->
+<!-- 		</dependency> -->
+
+		<!-- Test scope dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>
